@@ -26,11 +26,11 @@ export class UserProfile extends React.Component {
 
 
           <div className='upcomingEventsContainer'>
+            <h3>Upcoming events</h3>
             {this.attendingEvents.map(event => {
-              if (event.startTime > currentTime) {
+              if (event.startTime >= currentTime) {
                 return (
                   <>
-                  <h3>Upcoming events</h3>
                   <ul key={event.id} >
                     <Link to={`/events/${event.id}`} className='upcomingEventsLink'>
                       <li className='upcomingEventsList'>{event.eventName}</li>
@@ -43,11 +43,12 @@ export class UserProfile extends React.Component {
           </div>
 
           <div className='upcomingEventsContainer'>
+            <h3>Past events</h3>
           {this.attendingEvents.map(event => {
               if (event.startTime < currentTime) {
+
                 return (
                   <>
-                  <h3>Past events</h3>
                   <ul key={event.id} >
                     <Link to={`/events/${event.id}`} className='upcomingEventsLink'>
                       <li className='upcomingEventsList'>{event.eventName}</li>
