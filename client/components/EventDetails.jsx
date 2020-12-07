@@ -35,7 +35,7 @@ class EventDetails extends React.Component{
 
 
 
-    const joinOrLeaveEvent = (user, atten) =>{
+    const joinOrLeaveEvent = () =>{
       let atendents = eventDeatils.attendees.filter(atend => atend == this.props.activeUser.id)
       if(currentTime < raceFullDate == false){
         if(atendents.length == 0){

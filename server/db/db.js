@@ -38,12 +38,16 @@ function addComment (comment, db = connection) {
 
 function addUserToEvent(activeUser, db = connection){
   return db('users_events').insert(activeUser, {
-    user_id:activeUser.user_id,
+    user_id: activeUser.user_id,
     event_id: activeUser.event_id
   })
 }
+
 function removeUserFromEvent(activeUser, db = connection){
-  return db('users_events').where('event_id',activeUser.event_id).delete(activeUser)
+  return db('users_events')
+  .where('event_id', activeUser.event_id)
+  .where('user_id', activeUser.user_id)
+  .delete()
 }
 
 
